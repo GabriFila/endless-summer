@@ -64,8 +64,8 @@ function App() {
     <ThemeProvider theme={isLightTheme ? lightTheme : darkTheme}>
       <CssBaseline />
       <AuthProvider>
-        <StorageContextProvider needsLive={false}>
-          <ServiceContextProvider needsLive={false}>
+        <StorageContextProvider needsLive={true}>
+          <ServiceContextProvider needsLive={true}>
             <BrowserRouter>
               <Menu
                 isLightTheme={isLightTheme}
