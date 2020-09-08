@@ -108,17 +108,34 @@ function HubPage() {
                     {courses
                       .filter(course => course.kitchen === kitchen)
                       .sort((a, b) => a.orderNum - b.orderNum)
-                      .map(({ dishes, orderNum, courseId, note, status }) => (
-                        <Grid item xs={9} sm={6} md={10} lg={5} key={courseId}>
-                          <HubCourse
-                            dishes={dishes}
-                            orderNum={orderNum}
-                            courseId={courseId}
-                            note={note}
-                            status={status}
-                          />
-                        </Grid>
-                      ))}
+                      .map(
+                        ({
+                          dishes,
+                          orderNum,
+                          courseId,
+                          note,
+                          status,
+                          tableNum
+                        }) => (
+                          <Grid
+                            item
+                            xs={9}
+                            sm={6}
+                            md={10}
+                            lg={5}
+                            key={courseId}
+                          >
+                            <HubCourse
+                              dishes={dishes}
+                              orderNum={orderNum}
+                              courseId={courseId}
+                              note={note}
+                              status={status}
+                              tableNum={tableNum}
+                            />
+                          </Grid>
+                        )
+                      )}
                   </Grid>
                 </div>
                 {!isMobile && i !== kitchens.length - 1 && (

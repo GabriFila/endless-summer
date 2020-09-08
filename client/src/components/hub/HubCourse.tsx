@@ -12,6 +12,7 @@ interface IHubCourse {
   note: string;
   status: CourseStatus;
   dishes: IDish[];
+  tableNum: number;
 }
 
 const useStyle = makeStyles(theme =>
@@ -49,7 +50,7 @@ const useStyle = makeStyles(theme =>
 
 const HubCourse: React.FunctionComponent<IHubCourse> = props => {
   const classes = useStyle();
-  const { orderNum, note, dishes, status } = props;
+  const { orderNum, note, dishes, status, tableNum } = props;
 
   return (
     <Paper
@@ -58,7 +59,7 @@ const HubCourse: React.FunctionComponent<IHubCourse> = props => {
     >
       <div className={classes.topRow}>
         <Typography color="primary" variant="h5">
-          O:{orderNum}
+          T:{tableNum} O:{orderNum}
         </Typography>
       </div>
       {dishes.map(({ shortName, qt }) => (
