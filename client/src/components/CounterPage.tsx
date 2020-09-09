@@ -7,6 +7,7 @@ import AddIcon from '@material-ui/icons/AddCircle';
 import RemoveIcon from '@material-ui/icons/RemoveCircle';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
+import ResetIcon from '@material-ui/icons/Replay';
 
 const useStyle = makeStyles(theme =>
   createStyles({
@@ -28,7 +29,8 @@ const useStyle = makeStyles(theme =>
       fontSize: '4rem',
       textAlign: 'center'
     },
-    changeButton: { fontSize: '5rem' },
+    changeButton: { fontSize: '4rem' },
+    resetButton: { fontSize: '3rem' },
     totalPeopleSection: {
       display: 'flex',
       alignContent: 'center',
@@ -69,6 +71,9 @@ const CounterPage = () => {
   const counterDown = () => {
     counterRef.set({ present: peoplePresent - 1 }, { merge: true });
   };
+  const resetCounter = () => {
+    counterRef.set({ present: 0 }, { merge: true });
+  };
 
   return (
     <div className={classes.counterPage}>
@@ -83,6 +88,9 @@ const CounterPage = () => {
           color="secondary"
         >
           <RemoveIcon fontSize="large" className={classes.changeButton} />
+        </IconButton>
+        <IconButton color="secondary" onClick={resetCounter}>
+          <ResetIcon fontSize="large" className={classes.resetButton} />
         </IconButton>
         <IconButton onClick={counterUp} color="primary">
           <AddIcon fontSize="large" className={classes.changeButton} />
